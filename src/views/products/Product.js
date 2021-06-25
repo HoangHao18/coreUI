@@ -21,7 +21,20 @@ const Product = ({match}) => {
               <table className="table table-striped table-hover">
                 <tbody>
                   {
-                    productDetails.map(([key, value], index) => {
+                    productDetails.map(function([key, value], index) {
+                      if(key == "image"){
+                        return (
+                          <tr key={index.toString()}>
+                            <td>{`${key}:`}</td>
+                            <td>
+                            <img src={value} height="100" width="100" object-fit="cover"/>
+                              {/* <CImg src={item.images}
+                              /> */}
+                            </td>
+                          </tr>
+                        )
+                      }
+
                       return (
                         <tr key={index.toString()}>
                           <td>{`${key}:`}</td>
@@ -29,6 +42,25 @@ const Product = ({match}) => {
                         </tr>
                       )
                     })
+
+                    // productDetails.map(([key, value], index) => {
+                    //   return (
+                    //     <tr key={index.toString()}>
+                    //       <td>{`${key}:`}</td>
+                    //       if(key === "image"){
+                    //         <td>
+                    //         <img src={value} height="60" width="60" object-fit="cover"/>
+                    //          {/* <CImg src={item.images}
+                    //           /> */}
+                    //       </td>
+                    //       }
+                    //       else{
+                    //         <td><strong>{value}</strong></td>
+                    //       }
+                          
+                    //     </tr>
+                    //   )
+                    // })
                   }
                 </tbody>
               </table>
